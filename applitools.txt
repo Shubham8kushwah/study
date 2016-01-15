@@ -1,0 +1,87 @@
+public class Collectionpage {
+	
+	public static WebDriver driver;
+	public static Eyes eyes = new Eyes();
+	public	String title;
+	String baseurl;
+	
+	@BeforeStories
+	public static void screenerdriver() throws Throwable{
+		String exePath = "D:\\Automation\\chromedriver_win32\\chromedriver.exe";
+		System.setProperty("webdriver.chrome.driver", exePath);
+		driver = new ChromeDriver();
+		//driver = new FirefoxDriver();
+		eyes.setApiKey("dw994A0NSPZLqOW5Ss3v5R8oeFNxwLxQfguyyE8PfvSw110");
+		driver = eyes.open(driver, "Applitools", "Collection and Savoire page", new RectangleSize(1024,768));
+		driver.get("http://www.audemarspiguet.com/en/");
+		//eyes.setBaselineName("Firefox");
+		System.out.println("Applitool Configured");
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("scroll(0, 10000);");
+		jse.executeScript("scroll(1000,0);");
+		Thread.sleep(2000);
+		//eyes.checkWindow("Home Page");
+		//eyes.checkRegion();
+		eyes.setForceFullPageScreenshot(true);
+		System.out.println("Home Page Captured");
+	}
+	
+	@Given("Collection page url")
+	public void WebsiteUrl() throws Throwable{
+		/*driver = new FirefoxDriver();
+		eyes.setApiKey("dw994A0NSPZLqOW5Ss3v5R8oeFNxwLxQfguyyE8PfvSw110");
+		driver = eyes.open(driver, "Applitools", "Collection and Savoire page", new RectangleSize(1024,768));
+		driver.get("http://www.audemarspiguet.com/en/");
+		eyes.checkWindow("Home Page");*/
+		System.out.println("Collection Page :http://www.audemarspiguet.com/en/watch-collection");
+	}
+	
+	@When("User open the Collection page")
+		public void getpagetitle() throws Throwable{
+		driver.get("http://www.audemarspiguet.com/en/watch-collection");
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("scroll(0, 10000);");
+		jse.executeScript("scroll(1000,0);");
+		Thread.sleep(2000);
+		
+	}
+	
+	@Then("Collection page Screen get captured")
+	public void collectionscreen() throws Throwable{
+		//eyes.checkWindow("Collection page");
+		eyes.setForceFullPageScreenshot(true);
+	    System.out.println("Collection page Captured");
+    }
+	
+	@When("User open the Royal oak page")
+		public void roayaloakpage() throws Throwable{
+		driver.navigate().to("http://www.audemarspiguet.com/en/watch-collection/royal-oak");
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("scroll(0, 10000);");
+		jse.executeScript("scroll(1000,0);");
+		Thread.sleep(2000);
+	}
+	@Then("Royal oak page Screen get captured")
+		public void Royaloakscreen() throws Throwable{
+		//eyes.checkWindow("Royal oak page");
+		eyes.setForceFullPageScreenshot(true);
+		System.out.println("Royal oak page Captured");
+	}
+	
+	@When("User open Royal Oak Selfwindinge page")
+		public void selfwindingepage() throws Throwable{
+		driver.navigate().to("http://www.audemarspiguet.com/en/watch-collection/royal-oak");
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("scroll(0, 10000);");
+		jse.executeScript("scroll(1000,0);");
+		Thread.sleep(2000);
+	}
+	
+	@Then("Royal Oak Selfwindinge page Screen get captured")
+		public void selfwindingescreen() throws Throwable{
+		eyes.setForceFullPageScreenshot(true);
+		System.out.println("Royal Oak Selfwindinge page Captured");
+		//eyes.close();
+	}
+	
+}
