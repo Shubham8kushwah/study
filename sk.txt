@@ -1,7 +1,1 @@
-
-	@Then("Royal Oak Selfwindinge page Screen get captured")
-		public void selfwindingescreen() throws Throwable{
-		eyes.setForceFullPageScreenshot(true);
-		System.out.println("Royal Oak Selfwindinge page Captured");
-		//eyes.close();
-	}
+New change
